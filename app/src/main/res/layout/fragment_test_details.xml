@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/second"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/primaryColor"
+    tools:context=".DetailsFragment">
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/location_IL"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:boxBackgroundColor="@color/primaryColor">
+
+        <EditText
+            android:id="@+id/location_ET"
+            style="@style/bigTextView"
+            android:inputType="text"
+            android:maxLength="30"
+            android:layout_marginTop="15dp"
+            android:text="TextView"    />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <ImageView
+        android:id="@+id/location_imageV"
+        android:layout_width="match_parent"
+        android:layout_height="240dp"
+        android:paddingLeft="2dp"
+        android:paddingRight="2dp"
+        android:scaleType="fitXY"
+        app:srcCompat="@drawable/grandcanyon" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/cityAndState_IL"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:boxBackgroundColor="@color/primaryColor">
+
+        <EditText
+            android:id="@+id/cityAndState_ET"
+            style="@style/normalTextView"
+            android:inputType="text"
+            android:maxLength="30"
+            android:text="TextView"  />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/country_IL"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:boxBackgroundColor="@color/primaryColor">
+
+        <EditText
+            android:id="@+id/country_ET"
+            style="@style/normalTextView"
+            android:inputType="text"
+            android:maxLength="30"
+            android:text="TextView" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/visitDate_IL"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:boxBackgroundColor="@color/primaryColor">
+
+        <EditText
+            android:id="@+id/visitDate_ET"
+            style="@style/smallTextView"
+            android:focusable="false"
+            android:inputType="date"
+            android:maxLines="1"
+            android:text="TextView"
+            />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <RatingBar
+        android:id="@+id/ratingBar"
+        style="@style/RatingBar"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:numStars="5"
+        android:rating="2"
+        android:stepSize="0.5"
+        android:layout_gravity="center"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="5dp" />
+
+    <TextView
+        android:id="@+id/rating_textV"
+        style="@style/smallTextView"
+        android:text="TextView" />
+
+
+
+
+</LinearLayout>

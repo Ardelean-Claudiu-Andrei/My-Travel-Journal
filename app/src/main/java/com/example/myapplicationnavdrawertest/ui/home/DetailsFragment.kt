@@ -83,7 +83,7 @@ class DetailsFragment : Fragment(), OnMapReadyCallback {
 
             val locationImage = view.findViewById<ImageView>(R.id.location_imageV)
             locationImage.setImageResource(imageResId)
-//            fetchWeatherData(locationName)
+            fetchWeatherData(locationName)
 
             val locationEditText = view.findViewById<EditText>(R.id.location_ET)
             locationEditText.setText(locationName)
@@ -138,26 +138,26 @@ class DetailsFragment : Fragment(), OnMapReadyCallback {
         val photoRecyclerView: RecyclerView = view.findViewById(R.id.photo_grid_recycler_view)
 
 
-//        val location = arguments?.getParcelable<Locations>("selectedLocation")
-//        if (location != null) {
-//            val photoList: List<PhotoModel> = retrievePhotoList(location.name)
-//            val adapter = PhotoGridAdapter(photoList)
-//            photoRecyclerView.adapter = adapter
-//        }
+        val location = arguments?.getParcelable<Locations>("selectedLocation")
+        if (location != null) {
+            val photoList: List<PhotoModel> = retrievePhotoList(location.name)
+            val adapter = PhotoGridAdapter(photoList)
+            photoRecyclerView.adapter = adapter
+        }
 
 //        val selectedLocation = arguments?.getParcelable<com.example.myapplicationnavdrawertest.Locations>("selectedLocation")
-//        if (selectedLocation != null) {
-//            val favoriteToggleButton = view.findViewById<ToggleButton>(R.id.favorite_toggle_button)
-//            favoriteToggleButton.isChecked = selectedLocation.isFavorite
-//
-//            favoriteToggleButton.setOnCheckedChangeListener { _, isChecked ->
-//                selectedLocation.isFavorite = isChecked
-//                updateToggleButtonStyle(favoriteToggleButton, isChecked)
-//            }
-//
-//            // Initially update the button style based on the isFavorite state
-//            updateToggleButtonStyle(favoriteToggleButton, selectedLocation.isFavorite)
-//        }
+        if (selectedLocation != null) {
+            val favoriteToggleButton = view.findViewById<ToggleButton>(R.id.favorite_toggle_button)
+            favoriteToggleButton.isChecked = selectedLocation.isFavorite
+
+            favoriteToggleButton.setOnCheckedChangeListener { _, isChecked ->
+                selectedLocation.isFavorite = isChecked
+                updateToggleButtonStyle(favoriteToggleButton, isChecked)
+            }
+
+            // Initially update the button style based on the isFavorite state
+            updateToggleButtonStyle(favoriteToggleButton, selectedLocation.isFavorite)
+        }
 
     }
 
@@ -193,9 +193,9 @@ class DetailsFragment : Fragment(), OnMapReadyCallback {
     override fun onMapReady(googleMap: GoogleMap) {
         mGoogleMap = googleMap
         val selectedLocation = arguments?.getParcelable<Locations>("selectedLocation")
-//        if (selectedLocation != null) {
-//            showLocationOnMap(selectedLocation)
-//        }
+        if (selectedLocation != null) {
+            showLocationOnMap(selectedLocation)
+        }
 
 
     }
