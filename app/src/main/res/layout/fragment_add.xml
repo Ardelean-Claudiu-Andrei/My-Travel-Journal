@@ -7,7 +7,8 @@
         android:id="@+id/placeName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Place Name"
+        android:hint="@string/placeName"
+        android:textColor="?android:textColorPrimary"
         android:padding="8dp"
         android:layout_marginBottom="16dp"/>
 
@@ -16,7 +17,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/placeName"
-        android:hint="Place Location"
+        android:hint="@string/placeLocation"
+        android:textColor="?android:textColorPrimary"
         android:minHeight="48dp"
         android:padding="8dp"
         android:layout_marginBottom="16dp"/>
@@ -34,7 +36,8 @@
             android:id="@+id/datePicker"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Date of travel"
+            android:hint="@string/dateoftravel"
+            android:textColor="?android:textColorPrimary"
             android:inputType="none"
             android:onClick="showDatePickerDialog" />
     </com.google.android.material.textfield.TextInputLayout>
@@ -63,7 +66,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/travelMoodSlider"
-        android:text="Travel mood: "
+        android:text="@string/travelmood"
+        android:textColor="?android:textColorPrimary"
         android:padding="8dp"
         android:layout_marginBottom="16dp"/>
 
@@ -72,10 +76,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/moodLabel"
-        android:hint="Notes"
+        android:hint="@string/notes"
         android:minHeight="48dp"
         android:padding="8dp"
-        android:layout_marginBottom="16dp"/>
+        android:layout_marginBottom="16dp"
+        android:textColor="?android:textColorPrimary"/>
 
     <EditText
         android:id="@+id/gallerychoose"
@@ -83,6 +88,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/travelNotes"
         android:hint="10.12.2002"
+        android:textColor="?android:textColorPrimary"
         android:minHeight="48dp"
         android:padding="8dp" />
 
@@ -94,7 +100,8 @@
         android:layout_alignParentStart="true"
         android:layout_marginStart="83dp"
         android:layout_marginTop="150dp"
-        android:text="Gallery" />
+        android:text="Gallery"
+        android:textColor="@color/white"/>
 
     <Button
         android:id="@+id/btnCamera"
@@ -104,7 +111,8 @@
         android:layout_alignParentEnd="true"
         android:layout_marginTop="150dp"
         android:layout_marginEnd="83dp"
-        android:text="Camera" />
+        android:text="Camera"
+        android:textColor="@color/white"/>
 
     <Button
         android:id="@+id/btnSave"
@@ -116,7 +124,8 @@
         android:layout_marginStart="161dp"
         android:layout_marginEnd="162dp"
         android:layout_marginBottom="69dp"
-        android:text="Save" />
+        android:text="Save"
+        android:textColor="@color/white"/>
 
 
 </RelativeLayout>

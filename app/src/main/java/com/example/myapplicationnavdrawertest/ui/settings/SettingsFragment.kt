@@ -18,11 +18,14 @@ import com.example.myapplicationnavdrawertest.R
 import com.example.myapplicationnavdrawertest.SharedPreferenceManager
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import java.util.Locale
-
+interface MapModeChangeListener {
+    fun onMapModeChanged(mode: String)
+}
 class SettingsFragment : Fragment() {
 
     private lateinit var changeThemeBtn: Button
     private lateinit var themeRadioGroup: RadioGroup
+    private var mapModeChangeListener: MapModeChangeListener? = null
     private lateinit var notificationsSwitch: Switch
     private val NOTIFICATION_PERMISSION_REQUEST_CODE = 100
 
@@ -93,6 +96,10 @@ class SettingsFragment : Fragment() {
                 }
             languageDialog.show()
         }
+
+        val mode = "satellite" // or any other mode you want
+        mapModeChangeListener?.onMapModeChanged(mode)
+
 
 
         // Initialize the notifications switch

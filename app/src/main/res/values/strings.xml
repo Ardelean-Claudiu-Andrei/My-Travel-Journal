@@ -84,4 +84,9 @@
     <string name="satelliteView">Satelit View</string>
     <string name="notifications">Notifications</string>
     <string name="enableNotifications">Enable Notifications</string>
+    <string name="placeName">Place Name</string>
+    <string name="placeLocation">Place Location</string>
+    <string name="dateoftravel">Date of Travel</string>
+    <string name="travelmood">"Travel mood: "</string>
+    <string name="notes">Notes</string>
 </resources>

@@ -68,4 +68,9 @@
     <string name="satelliteView">Vedere Satelit</string>
     <string name="notifications">Notificari</string>
     <string name="enableNotifications">Activeaza Notificarile</string>
+    <string name="placeName">Numele Locatiei</string>
+    <string name="placeLocation">Locatia</string>
+    <string name="dateoftravel">Data calatoriei</string>
+    <string name="travelmood">"Starea de spirit: "</string>
+    <string name="notes">Notite</string>
 </resources>

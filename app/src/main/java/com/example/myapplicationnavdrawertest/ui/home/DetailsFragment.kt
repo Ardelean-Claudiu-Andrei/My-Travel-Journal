@@ -197,9 +197,8 @@ class DetailsFragment : Fragment(), OnMapReadyCallback {
         if (selectedLocation != null) {
             showLocationOnMap(selectedLocation)
         }
-
-
     }
+
     private fun showLocationOnMap(location: Locations) {
         val geocoder = Geocoder(requireContext())
 
@@ -223,6 +222,18 @@ class DetailsFragment : Fragment(), OnMapReadyCallback {
             Toast.makeText(requireContext(), "Error: ${e.localizedMessage}", Toast.LENGTH_SHORT).show()
         }
     }
+    fun updateMapMode(mode: String) {
+        val mapFragment = childFragmentManager.findFragmentById(R.id.map_fragment) as? SupportMapFragment
+        mapFragment?.getMapAsync { googleMap ->
+            when (mode) {
+                "satellite" -> googleMap.setMapType(GoogleMap.MAP_TYPE_SATELLITE)
+                // Handle other map modes as needed
+                // For example: "normal", "hybrid", etc.
+                else -> googleMap.setMapType(GoogleMap.MAP_TYPE_NORMAL)
+            }
+        }
+    }
+
 
     private fun updateToggleButtonStyle(button: ToggleButton, isFavorite: Boolean) {
         // Change the button style based on the isFavorite state

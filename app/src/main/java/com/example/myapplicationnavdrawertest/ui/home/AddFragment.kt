@@ -71,8 +71,8 @@ class AddFragment : Fragment(R.layout.fragment_add) {
             override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
                 // Handle progress changes and update the mood label
                 val mood: String = when (progress) {
-                    0 -> "Happy"
-                    1 -> "Sad"
+                    0 -> "Sad"
+                    1 -> "Happy"
                     else -> "Excited"
                 }
                 moodLabel.text = "Travel mood: $mood"
