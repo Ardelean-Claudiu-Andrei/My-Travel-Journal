@@ -60,4 +60,12 @@
     <string name="nav_header_title_Mtj">My Travel Journal</string>
     <string name="nav_header_subtitle_mtj">aclaudiuandrei586@gmail.com</string>
     <string name="SettingsFragment">Setari</string>
+    <string name="theme">Tema</string>
+    <string name="language">Limba</string>
+    <string name="changeTheme">Schimba Tema</string>
+    <string name="changeLanguage">Schimba Limba</string>
+    <string name="mapMode">Modul Hartii</string>
+    <string name="satelliteView">Vedere Satelit</string>
+    <string name="notifications">Notificari</string>
+    <string name="enableNotifications">Activeaza Notificarile</string>
 </resources>

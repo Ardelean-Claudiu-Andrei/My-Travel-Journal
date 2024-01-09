@@ -76,4 +76,12 @@
     <string name="nav_header_title_Mtj">My Travel Journal</string>
     <string name="nav_header_subtitle_mtj">aclaudiuandrei586@gmail.com</string>
     <string name="SettingsFragment">Settings</string>
+    <string name="theme">Theme</string>
+    <string name="language">Language</string>
+    <string name="changeTheme">Change Theme</string>
+    <string name="changeLanguage">Change Language</string>
+    <string name="mapMode">Map Mode</string>
+    <string name="satelliteView">Satelit View</string>
+    <string name="notifications">Notifications</string>
+    <string name="enableNotifications">Enable Notifications</string>
 </resources>

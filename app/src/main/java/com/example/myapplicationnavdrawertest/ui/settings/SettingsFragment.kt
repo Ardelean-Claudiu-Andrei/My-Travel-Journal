@@ -1,5 +1,5 @@
 package com.example.myapplicationnavdrawertest.ui.settings
-//import java.util.jar.Manifest
+
 import android.Manifest
 import android.content.pm.PackageManager
 import android.content.res.Configuration
@@ -16,24 +16,15 @@ import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import com.example.myapplicationnavdrawertest.R
 import com.example.myapplicationnavdrawertest.SharedPreferenceManager
-//import com.example.mytraveljournal.R
-//import com.example.mytraveljournal.SharedPreferenceManager
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import java.util.Locale
-
 
 class SettingsFragment : Fragment() {
 
     private lateinit var changeThemeBtn: Button
     private lateinit var themeRadioGroup: RadioGroup
-
-    private val themeTitleList = arrayOf("Light", "Dark", "Auto (System Default)")
-    private val languageTitleList = arrayOf("English", "Romanian")
     private lateinit var notificationsSwitch: Switch
-
-    // Define a constant for the notification permission request
     private val NOTIFICATION_PERMISSION_REQUEST_CODE = 100
-
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -47,56 +38,62 @@ class SettingsFragment : Fragment() {
     private fun initializeViews(view: View) {
         changeThemeBtn = view.findViewById(R.id.changeThemeBtn)
         themeRadioGroup = view.findViewById(R.id.themeRadioGroup)
+        notificationsSwitch = view.findViewById(R.id.notificationsSwitch)
 
         val sharedPreferenceManager = SharedPreferenceManager(requireContext())
-
-        // Retrieve the stored theme or default to system default
         var storedThemeIndex = sharedPreferenceManager.theme
-
-        // If no theme is set yet, set it to the system default
         if (storedThemeIndex == -1) {
-            storedThemeIndex =
-                resources.configuration.uiMode and Configuration.UI_MODE_NIGHT_MASK
+            storedThemeIndex = resources.configuration.uiMode and Configuration.UI_MODE_NIGHT_MASK
             sharedPreferenceManager.theme = storedThemeIndex
         }
-
-        // Apply the system default theme initially
         applyTheme(storedThemeIndex)
 
-        // Listen for changes in the selected theme
         themeRadioGroup.setOnCheckedChangeListener { _, checkedId ->
             val newIndex = themeRadioGroup.indexOfChild(view.findViewById(checkedId))
-            // Store the selected theme in preferences
             sharedPreferenceManager.theme = newIndex
-            // Apply the selected theme
             applyTheme(newIndex)
         }
 
-        // Show theme change dialog on button click
         changeThemeBtn.setOnClickListener {
             val themeDialog = MaterialAlertDialogBuilder(requireContext())
                 .setTitle("Theme")
                 .setPositiveButton("Ok") { _, _ ->
-                    // Apply the selected theme
                     applyTheme(sharedPreferenceManager.theme)
                 }
                 .setCancelable(false)
-                .setSingleChoiceItems(themeTitleList, sharedPreferenceManager.theme) { _, which ->
-                    // Update the selected theme when the dialog selection changes
+                .setSingleChoiceItems(
+                    arrayOf("Light", "Dark", "Auto (System Default)"),
+                    sharedPreferenceManager.theme
+                ) { _, which ->
                     sharedPreferenceManager.theme = which
                     themeRadioGroup.check(which)
                 }
             themeDialog.show()
         }
 
-        // Handle language selection
-        view.findViewById<RadioGroup>(R.id.languageRadioGroup).setOnCheckedChangeListener { _, checkedId ->
-            when (checkedId) {
-                R.id.englishRadioButton -> setLocale("en")
-                R.id.romanianRadioButton -> setLocale("ro")
-            }
-            requireActivity().recreate()
+        view.findViewById<Button>(R.id.changeLanguageBtn).setOnClickListener {
+            val languageDialog = MaterialAlertDialogBuilder(requireContext())
+                .setTitle("Language")
+                .setPositiveButton("Ok") { _, _ ->
+                    // Reload the activity to apply the selected language
+                    requireActivity().recreate()
+                }
+                .setCancelable(false)
+                .setSingleChoiceItems(
+                    arrayOf("English", "Romana"),
+                    getCurrentLanguageIndex()
+                ) { dialog, which ->
+                    val selectedLanguage = when (which) {
+                        0 -> "en"
+                        1 -> "ro"
+                        else -> "en" // Default to English
+                    }
+                    setLocale(selectedLanguage)
+                    dialog.dismiss()
+                }
+            languageDialog.show()
         }
+
 
         // Initialize the notifications switch
         notificationsSwitch = view.findViewById(R.id.notificationsSwitch)
@@ -104,38 +101,44 @@ class SettingsFragment : Fragment() {
         // Listen for changes in the notifications switch state
         notificationsSwitch.setOnCheckedChangeListener { _, isChecked ->
             if (isChecked) {
-                // If the switch is turned on, request notification permission
                 requestNotificationPermission()
             } else {
-                // If the switch is turned off, handle the logic accordingly
-                // (e.g., disable notifications or other actions)
+                // Handle when switch is turned off
             }
         }
+
     }
 
     private fun setLocale(languageCode: String) {
         val locale = Locale(languageCode)
         Locale.setDefault(locale)
-
         val config = Configuration()
         config.setLocale(locale)
         resources.updateConfiguration(config, resources.displayMetrics)
-
-        // Restart the fragment manager to reload the fragment with the new language
-        requireActivity().supportFragmentManager.beginTransaction().detach(this).attach(this).commit()
     }
-
-
+    private fun getCurrentLanguageIndex(): Int {
+        // Get the current language code and determine the index
+        val currentLanguage = Locale.getDefault().language
+        return when (currentLanguage) {
+            "en" -> 0
+            "ro" -> 1
+            else -> 0 // Default to English if not found
+        }
+    }
+    private fun applyLanguage(languageIndex: Int) {
+        /* Apply language based on the languageIndex */
+        /* Trigger recreation of the activity/fragment for the language change to take effect */
+        requireActivity().recreate()
+    }
 
     private fun applyTheme(themeIndex: Int) {
         val themeMode = when (themeIndex) {
-            0 -> AppCompatDelegate.MODE_NIGHT_NO // Light theme
-            1 -> AppCompatDelegate.MODE_NIGHT_YES // Dark theme
-            else -> AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM // System default
+            0 -> AppCompatDelegate.MODE_NIGHT_NO
+            1 -> AppCompatDelegate.MODE_NIGHT_YES
+            else -> AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM
         }
         AppCompatDelegate.setDefaultNightMode(themeMode)
     }
-
 
     private fun requestNotificationPermission() {
         if (ContextCompat.checkSelfPermission(
@@ -153,9 +156,6 @@ class SettingsFragment : Fragment() {
         }
     }
 
-
-
-    // Handle the result of the permission request
     override fun onRequestPermissionsResult(
         requestCode: Int,
         permissions: Array<out String>,
@@ -165,11 +165,12 @@ class SettingsFragment : Fragment() {
         if (requestCode == NOTIFICATION_PERMISSION_REQUEST_CODE) {
             if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                 // Notification permission granted, perform necessary actions here
-                // (e.g., enable notifications)
+                // For instance, enable notifications or any specific logic
             } else {
                 // Notification permission denied, handle it accordingly
-                // (e.g., show a message or disable notifications)
+                // For instance, show a message explaining why permission is needed
             }
         }
     }
+
 }
