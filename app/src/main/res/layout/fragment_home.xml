@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.home.HomeFragment">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="33dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginHorizontal="10dp"
+        android:layout_marginVertical="30dp"
+
+        android:background="@drawable/bg_switch"
+        android:padding="2.5dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints">
+
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/switchOnOff"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:checked="true"
+            android:textColor="@color/white"
+            android:thumb="@drawable/thumb_selector"
+            app:switchMinWidth="140dp"
+            app:track="@drawable/track_selector" />
+
+        <LinearLayout
+            android:layout_width="140dp"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:weightSum="2">
+
+            <TextView
+                android:id="@+id/tvSwitchAll"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="All"
+                android:textColor="#4282DC"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/tvSwitchFavorite"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="Favorite"
+                android:textColor="@color/white"
+                android:textSize="12sp" />
+
+
+        </LinearLayout>
+
+
+    </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/cluj_imageV"
+        style="@style/GridImage"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/left_guideline"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.23"
+        app:srcCompat="@drawable/clujnapoca1" />
+
+    <ImageView
+        android:id="@+id/bucuresti_imageV"
+        style="@style/GridImage"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/right_guideline"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.23"
+        app:srcCompat="@drawable/bucuresti1" />
+
+
+    <TextView
+        android:id="@+id/clujTitle_textV"
+        style="@style/photoTitleTextView"
+        android:text="@string/photo1Intro"
+        android:maxLines="2"
+        app:layout_constraintEnd_toEndOf="@+id/cluj_imageV"
+        app:layout_constraintStart_toStartOf="@+id/left_guideline"
+        app:layout_constraintTop_toBottomOf="@+id/cluj_imageV"
+        android:textColor="?android:textColorPrimary"/>
+
+    <ToggleButton
+        android:id="@+id/favorite_toggle_button1"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:text="Mark as Favorite"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/favorite_button_selector"
+        android:button="@null"
+        app:layout_constraintTop_toBottomOf="@id/clujTitle_textV"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/bucurestiTitle_textV"
+        style="@style/photoTitleTextView"
+        android:text="@string/photo2Intro"
+        android:maxLines="2"
+        app:layout_constraintEnd_toStartOf="@+id/right_guideline"
+        app:layout_constraintTop_toBottomOf="@+id/bucuresti_imageV"
+        android:textColor="?android:textColorPrimary"/>
+
+    <ToggleButton
+        android:id="@+id/favorite_toggle_button2"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:text="Mark as Favorite"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/favorite_button_selector"
+        android:button="@null"
+        app:layout_constraintTop_toBottomOf="@id/bucurestiTitle_textV"
+        app:layout_constraintStart_toStartOf="@id/bucurestiTitle_textV"/>
+
+    <TextView
+        android:id="@+id/iasiTitle_textV"
+        style="@style/photoTitleTextView"
+        android:text="@string/photo3Intro"
+        android:maxLines="2"
+        app:layout_constraintEnd_toEndOf="@+id/iasi_imageV"
+        app:layout_constraintStart_toStartOf="@+id/left_guideline"
+        app:layout_constraintTop_toBottomOf="@+id/iasi_imageV"
+        android:textColor="?android:textColorPrimary"/>
+    <ToggleButton
+        android:id="@+id/favorite_toggle_button3"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:text="Mark as Favorite"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/favorite_button_selector"
+        android:button="@null"
+        app:layout_constraintTop_toBottomOf="@id/iasiTitle_textV"
+        app:layout_constraintStart_toStartOf="@id/iasiTitle_textV"/>
+
+    <TextView
+        android:id="@+id/berlinTitle_textV"
+        style="@style/photoTitleTextView"
+        android:text="@string/photo4Intro"
+        android:maxLines="2"
+        app:layout_constraintEnd_toStartOf="@+id/right_guideline"
+        app:layout_constraintTop_toBottomOf="@+id/berlin_imageV"
+        android:textColor="?android:textColorPrimary"/>
+
+    <ToggleButton
+        android:id="@+id/favorite_toggle_button4"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:text="Mark as Favorite"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/favorite_button_selector"
+        android:button="@null"
+        app:layout_constraintTop_toBottomOf="@id/berlinTitle_textV"
+        app:layout_constraintStart_toStartOf="@id/berlinTitle_textV"/>
+
+    <ImageView
+        android:id="@+id/iasi_imageV"
+        style="@style/GridImage"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/left_guideline"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.70"
+        app:srcCompat="@drawable/iasi1" />
+
+    <ImageView
+        android:id="@+id/berlin_imageV"
+        style="@style/GridImage"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/right_guideline"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.70"
+        app:srcCompat="@drawable/berlin1" />
+
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/left_guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="4dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/right_guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="408dp" />
+
+    <Button
+        android:id="@+id/addButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:layout_marginEnd="152dp"
+        android:layout_marginBottom="4dp"
+        android:onClick="onAddButtonClick"
+        android:text="Add"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!--    <com.google.android.material.floatingactionbutton.FloatingActionButton-->
+    <!--        android:id="@+id/addButton"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_marginEnd="28dp"-->
+    <!--        android:layout_marginBottom="28dp"-->
+    <!--        android:clickable="true"-->
+    <!--        android:src="@drawable/icon_add"-->
+    <!--        app:layout_constraintBottom_toBottomOf="parent"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent" />-->
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

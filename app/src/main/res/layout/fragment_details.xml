@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        tools:context=".DetailsFragment">
+
+<!--        android:background="@color/primaryColor"-->
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/location_IL"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+<!--        app:boxBackgroundColor="@color/primaryColor"-->
+
+        <EditText
+            android:id="@+id/location_ET"
+            style="@style/bigTextView"
+            android:inputType="text"
+            android:maxLength="30"
+            android:layout_marginTop="15dp"
+            android:textColor="?android:textColorPrimary"
+            android:text="TextView" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <ImageView
+        android:id="@+id/location_imageV"
+        android:layout_width="match_parent"
+        android:layout_height="240dp"
+        android:paddingLeft="2dp"
+        android:paddingRight="2dp"
+        android:scaleType="fitXY"
+        app:srcCompat="@drawable/grandcanyon" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/cityAndState_IL"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+<!--        app:boxBackgroundColor="@color/primaryColor"-->
+
+        <EditText
+            android:id="@+id/cityAndState_ET"
+            style="@style/normalTextView"
+            android:inputType="text"
+            android:maxLength="30"
+            android:textColor="?android:textColorPrimary"
+            android:text="TextView" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/country_IL"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+<!--        app:boxBackgroundColor="@color/primaryColor"-->
+
+        <EditText
+            android:id="@+id/country_ET"
+            style="@style/normalTextView"
+            android:inputType="text"
+            android:maxLength="30"
+            android:textColor="?android:textColorPrimary"
+            android:text="TextView" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/visitDate_IL"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+<!--        app:boxBackgroundColor="@color/primaryColor"-->
+
+        <EditText
+            android:id="@+id/visitDate_ET"
+            style="@style/smallTextView"
+            android:focusable="false"
+            android:inputType="date"
+            android:maxLines="1"
+            android:textColor="?android:textColorPrimary"
+            android:text="TextView" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+<!--    <RatingBar-->
+<!--        android:id="@+id/ratingBar"-->
+<!--        style="@style/RatingBar"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="40dp"-->
+<!--        android:numStars="5"-->
+<!--        android:rating="2"-->
+<!--        android:stepSize="0.5"-->
+<!--        android:layout_gravity="center"-->
+<!--        android:layout_marginBottom="10dp"-->
+<!--        android:layout_marginTop="5dp" />-->
+
+<!--    <TextView-->
+<!--        android:id="@+id/rating_textV"-->
+<!--        style="@style/smallTextView"-->
+<!--        android:text="TextView" />-->
+
+    <!-- Google Maps Integration -->
+    <fragment
+        android:id="@+id/map_fragment"
+        android:layout_width="match_parent"
+        android:layout_height="500dp"
+        app:layout_constraintTop_toBottomOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        class="com.google.android.gms.maps.SupportMapFragment" />
+
+
+<!--    <Button-->
+<!--        android:id="@+id/saveButton"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="Save"-->
+<!--        android:layout_gravity="center"-->
+<!--        android:layout_marginTop="20dp" />-->
+
+        <!-- Weather Information -->
+        <EditText
+            android:id="@+id/weather_info"
+            style="@style/normalTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Weather: Sunny, 25°C"
+            android:textColor="?android:textColorPrimary"
+            android:enabled="false"
+            android:focusable="false"
+            android:inputType="none" />
+
+
+        <!-- Travel Notes -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/travel_notes_IL"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp">
+<!--            app:boxBackgroundColor="@color/primaryColor"-->
+
+            <EditText
+                android:id="@+id/travel_notes_ET"
+                style="@style/normalTextView"
+                android:inputType="textMultiLine"
+                android:lines="3"
+                android:maxLines="5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="?android:textColorPrimary"
+                android:hint="Travel Notes" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- photo_gallery_item.xml -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/photo_grid_recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+            app:spanCount="3" /> <!-- Adjust spanCount as needed for your 3x2 grid -->
+
+
+        <!-- Favorite Toggle Button -->
+        <ToggleButton
+            android:id="@+id/favorite_toggle_button"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:text="Mark as Favorite"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/favorite_button_selector"
+            android:button="@null" />
+
+    </LinearLayout>
+</ScrollView>

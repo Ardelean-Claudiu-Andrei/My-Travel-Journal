@@ -1,0 +1,79 @@
+<resources>
+    <string name="app_name">My Travel Journal</string>
+    <string name="google_maps_api_key">AIzaSyAOCT2itWHHYmBHWTcrA79OC-JtcO5lv9Q</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="menu_home">Home</string>
+    <string name="menu_gallery">Gallery</string>
+    <string name="menu_slideshow">Slideshow</string>
+
+    <string name="my_travel_journal">My Travel Journal</string>
+    <string name="aclaudiuandrei586_gmail_com">aclaudiuandrei586@gmail.com</string>
+    <string name="profile">Profil</string>
+    <string name="about_us">Despre Noi</string>
+    <string name="contact_us">Contacteaza-ne</string>
+    <string name="share">Distribuie</string>
+    <string name="settings">Setari</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Buna fragment gol</string>
+
+    <!--    <string-array name="travel_types">-->
+    <!--        <item>Agrement</item>-->
+    <!--        <item>Afaceri</item>-->
+    <!--        <item>Familie</item>-->
+    <!--        &lt;!&ndash; Add other travel types as needed &ndash;&gt;-->
+    <!--    </string-array>-->
+
+    <string name="select_travel_type">Select Travel Type</string>
+
+    <string-array name="travel_types">
+        <item>Leisure</item>
+        <item>Business</item>
+        <item>Family</item>
+        <!-- Add other travel types as needed -->
+    </string-array>
+
+
+    <!--    1st photo    -->
+    <string name="photo1Image">cluj</string>
+    <string name="photo1Name">Cluj Napoca</string>
+    <string name="photo1Intro">Cluj Napoca\n4.5 Stars</string>
+
+
+    <!--    2nd photo    -->
+    <string name="photo2Image">bucharest</string>
+    <string name="photo2Name">Bucharest</string>
+    <string name="photo2Intro">Bucharest\n5.0 Stars</string>
+
+
+    <!--    3rd photo   -->
+    <string name="photo3Image">iasi</string>
+    <string name="photo3Name">Iasi</string>
+    <string name="photo3Intro">Iasi\n4.0 Stars</string>
+
+
+    <!--    4th photo   -->
+    <string name="photo4Image">berlin</string>
+    <string name="photo4Name">Berlin</string>
+    <string name="photo4Intro">Berlin\n3.5 Stars</string>
+
+
+    <!--    Error messages   -->
+    <string name="nameInputError">Alphabets, spaces and commas only for Name</string>
+    <string name="cityAndStateInputError">Alphabets, spaces and commas only for City, State</string>
+    <string name="countryInputError">Alphabets, spaces and commas only for Country</string>
+    <string name="dateInputError">Please enter a date before today</string>
+    <string name="menu_profile">Profile</string>
+    <string name="menu_settings">Settings\n</string>
+    <string name="menu_about_us">About Us\n</string>
+    <string name="menu_share">Share</string>
+    <string name="menu_contact_us">Contact Us</string>
+    <string name="nav_header_title_Mtj">My Travel Journal</string>
+    <string name="nav_header_subtitle_mtj">aclaudiuandrei586@gmail.com</string>
+    <string name="SettingsFragment">Settings</string>
+</resources>

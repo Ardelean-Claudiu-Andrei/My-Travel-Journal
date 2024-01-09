@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_home">
+
+    <fragment
+        android:id="@+id/nav_home"
+        android:name="com.example.myapplicationnavdrawertest.ui.home.HomeFragment"
+        android:label="@string/menu_home"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_nav_home_to_detailsFragment"
+            app:destination="@id/detailsFragment" />
+        <action
+            android:id="@+id/action_nav_home_to_addFragment"
+            app:destination="@id/addFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_profile"
+        android:name="com.example.myapplicationnavdrawertest.ui.profile.ProfileFragment"
+        android:label="@string/menu_profile"
+        tools:layout="@layout/fragment_profile" />
+
+    <fragment
+        android:id="@+id/nav_about_us"
+        android:name="com.example.myapplicationnavdrawertest.ui.aboutus.AboutUsFragment"
+        android:label="@string/menu_about_us"
+        tools:layout="@layout/fragment_aboutus" />
+    <fragment
+        android:id="@+id/addFragment"
+        android:name="com.example.mytraveljournal.ui.home.AddFragment"
+        android:label="AddFragment" />
+    <fragment
+        android:id="@+id/detailsFragment"
+        android:name="com.example.myapplicationnavdrawertest.ui.home.DetailsFragment"
+        android:label="DetailsFragment" />
+
+    <fragment
+        android:id="@+id/nav_contact_us"
+        android:name="com.example.myapplicationnavdrawertest.ui.contactus.ContactUsFragment"
+        android:label="DetailsFragment" />
+    <fragment
+        android:id="@+id/nav_share"
+        android:name="com.example.myapplicationnavdrawertest.ui.share.ShareFragment"
+        android:label="DetailsFragment" />
+
+    <fragment
+        android:id="@+id/nav_settings"
+        android:name="com.example.myapplicationnavdrawertest.ui.settings.SettingsFragment"
+        android:label="@string/SettingsFragment"
+        android:layout="@layout/fragment_settings"/>
+
+
+
+</navigation>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Selected (Favorite) State -->
+    <item android:drawable="@drawable/favorite_icon" android:state_checked="true" />
+    <!-- Default (Non-Favorite) State -->
+    <item android:drawable="@drawable/non_favorite_icon" />
+</selector>

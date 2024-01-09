@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item type="id" name="lightThemeRadioButton" />
+    <item type="id" name="darkThemeRadioButton" />
+    <item type="id" name="themeRadioGroup" />
+    <item type="id" name="languageSpinner" />
+    <item type="id" name="mapModeSwitch" />
+    <item type="id" name="notificationsSwitch" />
+    <item name="ratingBar" type="id" />
+    <item name="rating_textV" type="id" />
+    <item name="saveButton" type="id" />
+    <item name="visitDate_ET" type="id" />
+    <item name="visitDate_IL" type="id" />
+    <item name="country_ET" type="id" />
+    <item name="country_IL" type="id" />
+    <item name="cityAndState_ET" type="id" />
+    <item name="cityAndState_IL" type="id" />
+    <item name="location_imageV" type="id" />
+    <item name="location_ET" type="id" />
+    <item name="location_IL" type="id" />
+    <item name="bucuresti_imageV" type="id" />
+</resources>

@@ -1,0 +1,42 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:gravity="center">
+
+    <!-- EditText for Email teoretic trebe luat din cont-->
+<!--    <EditText-->
+<!--        android:id="@+id/emailEditText"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:hint="Email"-->
+<!--        android:minHeight="48dp" />-->
+
+    <!-- EditText for Subject -->
+    <EditText
+        android:id="@+id/subjectEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Subject"
+        android:minHeight="48dp" />
+
+    <!-- EditText for Message -->
+    <EditText
+        android:id="@+id/messageEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Your Message"
+        android:inputType="textMultiLine"
+        android:minHeight="48dp" />
+
+    <!-- Button to initiate email intent -->
+    <Button
+        android:id="@+id/contactButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Contact Us" />
+    <!-- Other button attributes -->
+
+</LinearLayout>

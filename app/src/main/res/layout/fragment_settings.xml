@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+
+    <!-- Theme selection -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Theme"
+        android:textSize="18sp"
+        android:layout_marginTop="40dp"
+        android:layout_marginBottom="8dp"
+        android:textColor="?android:textColorPrimary"/>
+
+    <!-- RadioGroup for theme selection (Light/Dark) -->
+    <!-- RadioGroup for theme selection (Light/Dark) -->
+    <RadioGroup
+        android:id="@+id/themeRadioGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/changeThemeBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:paddingHorizontal="16dp"
+            android:text="Change Theme"
+            android:textSize="20sp"
+            android:layout_centerHorizontal="true" />
+<!--style="@style/buttonStyle"-->
+
+    </RadioGroup>
+
+    <!-- Language selection -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Language"
+        android:textSize="18sp"
+        android:textColor="?android:textColorPrimary"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="8dp" />
+
+    <!-- RadioGroup for language selection -->
+    <RadioGroup
+        android:id="@+id/languageRadioGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <RadioButton
+            android:id="@+id/englishRadioButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="English"
+            android:textColor="?android:textColorPrimary"/>
+
+        <RadioButton
+            android:id="@+id/romanianRadioButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Romanian"
+            android:textColor="?android:textColorPrimary"/>
+
+    </RadioGroup>
+
+    <!-- Map mode selection -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Map Mode"
+        android:textSize="18sp"
+        android:textColor="?android:textColorPrimary"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="8dp" />
+
+    <!-- Switch for map mode selection -->
+    <androidx.appcompat.widget.SwitchCompat
+        android:id="@+id/mapModeSwitch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Satellite View"
+        android:textColor="?android:textColorPrimary"/>
+
+    <!-- Notifications settings -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Notifications"
+        android:textSize="18sp"
+        android:textColor="?android:textColorPrimary"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="8dp" />
+
+    <!-- Switch for notifications -->
+    <Switch
+        android:id="@+id/notificationsSwitch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:minHeight="48dp"
+        android:text="Enable Notifications"
+        android:textColor="?android:textColorPrimary"/>
+
+    <!-- Add other settings options here -->
+
+</LinearLayout>

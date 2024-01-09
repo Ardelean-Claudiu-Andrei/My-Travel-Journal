@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:padding="32dp">
+
+    <!-- Developer Information -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Developer: Ardelean Claudiu Andrei"
+        android:textSize="18sp"
+        android:textColor="?android:textColorPrimary"
+        android:layout_marginBottom="30dp" />
+
+    <!-- App Version -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="App Version: 1.0"
+        android:textSize="18sp"
+        android:textColor="?android:textColorPrimary"
+        android:layout_marginBottom="30dp" />
+
+    <!-- Copyright Details -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="© 2023 My Travel Journal. All rights reserved."
+        android:textSize="17sp"
+        android:textColor="?android:textColorPrimary" />
+
+    <!-- Other relevant information about the app can be added here -->
+
+</LinearLayout>
