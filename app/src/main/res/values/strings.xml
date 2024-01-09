@@ -20,7 +20,7 @@
     <string name="share">Distribuie</string>
     <string name="settings">Setari</string>
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Buna fragment gol</string>
+    <string name="hello_blank_fragment">Hello Blank Fragment</string>
 
     <!--    <string-array name="travel_types">-->
     <!--        <item>Agrement</item>-->

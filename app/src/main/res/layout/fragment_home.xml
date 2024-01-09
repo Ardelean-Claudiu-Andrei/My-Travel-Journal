@@ -87,7 +87,7 @@
     <TextView
         android:id="@+id/clujTitle_textV"
         style="@style/photoTitleTextView"
-        android:text="@string/photo1Intro"
+        android:text="@string/photo1Name"
         android:maxLines="2"
         app:layout_constraintEnd_toEndOf="@+id/cluj_imageV"
         app:layout_constraintStart_toStartOf="@+id/left_guideline"
@@ -109,7 +109,7 @@
     <TextView
         android:id="@+id/bucurestiTitle_textV"
         style="@style/photoTitleTextView"
-        android:text="@string/photo2Intro"
+        android:text="@string/photo2Name"
         android:maxLines="2"
         app:layout_constraintEnd_toStartOf="@+id/right_guideline"
         app:layout_constraintTop_toBottomOf="@+id/bucuresti_imageV"
@@ -130,7 +130,7 @@
     <TextView
         android:id="@+id/iasiTitle_textV"
         style="@style/photoTitleTextView"
-        android:text="@string/photo3Intro"
+        android:text="@string/photo3Name"
         android:maxLines="2"
         app:layout_constraintEnd_toEndOf="@+id/iasi_imageV"
         app:layout_constraintStart_toStartOf="@+id/left_guideline"
@@ -151,7 +151,7 @@
     <TextView
         android:id="@+id/berlinTitle_textV"
         style="@style/photoTitleTextView"
-        android:text="@string/photo4Intro"
+        android:text="@string/photo4Name"
         android:maxLines="2"
         app:layout_constraintEnd_toStartOf="@+id/right_guideline"
         app:layout_constraintTop_toBottomOf="@+id/berlin_imageV"

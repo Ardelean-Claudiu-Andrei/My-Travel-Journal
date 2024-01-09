@@ -1,6 +1,8 @@
 package com.example.myapplicationnavdrawertest.ui.home
-import com.example.myapplicationnavdrawertest.Locations
+
+//import Locations
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -8,19 +10,23 @@ import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
+import android.widget.ToggleButton
+import androidx.activity.result.contract.ActivityResultContracts
+import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SwitchCompat
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.commit
-import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
+import com.example.myapplicationnavdrawertest.Locations
 import com.example.myapplicationnavdrawertest.R
-import com.example.myapplicationnavdrawertest.databinding.FragmentHomeBinding
-import com.example.myapplicationnavdrawertest.ui.home.DetailsFragment
+//import com.example.mytraveljournal.R
+import com.example.mytraveljournal.ui.home.FavoriteToggleListener
+
 
 private const val TAG = "HomeFragment"
 
-class HomeFragment : Fragment() {
+class HomeFragment : Fragment(), FavoriteToggleListener {
 
     private val locationBank = mutableListOf(
         Locations(R.drawable.clujnapoca1, R.id.clujTitle_textV, "Cluj Napoca", "Cluj Napoca, Cluj", "Romania", "Last visited: 15/05/2019", 4.5f),
@@ -35,8 +41,6 @@ class HomeFragment : Fragment() {
     private lateinit var switchOnOff: SwitchCompat
     private lateinit var tvSwitchYes: TextView
     private lateinit var tvSwitchNo: TextView
-    private var _binding: FragmentHomeBinding? = null
-    private val binding get() = _binding!!
 
 
     override fun onCreateView(
@@ -44,116 +48,9 @@ class HomeFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val homeViewModel = ViewModelProvider(this).get(HomeViewModel::class.java)
-
-        _binding = FragmentHomeBinding.inflate(inflater, container, false)
-        val view = binding.root
-
-        switchOnOff = view.findViewById(R.id.switchOnOff) ?: SwitchCompat(requireContext())
-        tvSwitchYes = view.findViewById(R.id.tvSwitchAll) ?: TextView(requireContext())
-        tvSwitchNo = view.findViewById(R.id.tvSwitchFavorite) ?: TextView(requireContext())
-
-        switchOnOff.setOnCheckedChangeListener { _, checked ->
-            if (checked) {
-                tvSwitchYes.setTextColor(ContextCompat.getColor(requireContext(), R.color.switchBlue))
-                tvSwitchNo.setTextColor(ContextCompat.getColor(requireContext(), R.color.white))
-                // Perform logic to show favorite memories
-                // refreshMemoriesDisplay(true)
-            } else {
-                tvSwitchYes.setTextColor(ContextCompat.getColor(requireContext(), R.color.white))
-                tvSwitchNo.setTextColor(ContextCompat.getColor(requireContext(), R.color.switchBlue))
-                // Perform logic to show all memories
-                // refreshMemoriesDisplay(false)
-            }
-        }
-
-        val locationImage1 = view.findViewById<ImageView>(R.id.cluj_imageV)
-        val locationImage2 = view.findViewById<ImageView>(R.id.bucuresti_imageV)
-        val locationImage3 = view.findViewById<ImageView>(R.id.iasi_imageV)
-        val locationImage4 = view.findViewById<ImageView>(R.id.berlin_imageV)
-
-        val addButton: Button = view.findViewById(R.id.addButton)
-        addButton.setOnClickListener {
-            Toast.makeText(requireContext(), "Add button clicked!", Toast.LENGTH_SHORT).show()
-            findNavController().navigate(R.id.action_nav_home_to_addFragment)
-        }
-
-        // Set click listeners for location images
-        locationImage1.setOnClickListener {
-            imageIndex = 0
-            val selectedLocation = locationBank[imageIndex]
-
-            val bundle = Bundle()
-            bundle.putParcelable("selectedLocation", selectedLocation)
-
-            val detailsFragment = DetailsFragment()
-            detailsFragment.arguments = bundle
-
-            parentFragmentManager.commit {
-                replace(R.id.fragment_container, detailsFragment)
-                addToBackStack(null)
-            }
-        }
-
-
-
-        locationImage2.setOnClickListener {
-            imageIndex = 1
-            val selectedLocation = locationBank[imageIndex]
-
-            val bundle = Bundle()
-            bundle.putParcelable("selectedLocation", selectedLocation)
-
-            val detailsFragment = DetailsFragment()
-            detailsFragment.arguments = bundle
-
-            parentFragmentManager.commit {
-                replace(R.id.fragment_container, detailsFragment)
-                addToBackStack(null)
-            }
-        }
-
-        locationImage3.setOnClickListener {
-            imageIndex = 2
-            val selectedLocation = locationBank[imageIndex]
-
-            val bundle = Bundle()
-            bundle.putParcelable("selectedLocation", selectedLocation)
-
-            val detailsFragment = DetailsFragment()
-            detailsFragment.arguments = bundle
-
-            parentFragmentManager.commit {
-                replace(R.id.fragment_container, detailsFragment)
-                addToBackStack(null)
-            }
-        }
-
-        locationImage4.setOnClickListener {
-            imageIndex = 3
-            val selectedLocation = locationBank[imageIndex]
-
-            val bundle = Bundle()
-            bundle.putParcelable("selectedLocation", selectedLocation)
-
-            val detailsFragment = DetailsFragment()
-            detailsFragment.arguments = bundle
-
-            parentFragmentManager.commit {
-                replace(R.id.fragment_container, detailsFragment)
-                addToBackStack(null)
-            }
-        }
-
-        return view
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-
-        switchOnOff = view.findViewById(R.id.switchOnOff) ?: SwitchCompat(requireContext())
-        tvSwitchYes = view.findViewById(R.id.tvSwitchAll) ?: TextView(requireContext())
-        tvSwitchNo = view.findViewById(R.id.tvSwitchFavorite) ?: TextView(requireContext())
+        switchOnOff = view?.findViewById(R.id.switchOnOff) ?: SwitchCompat(requireContext())
+        tvSwitchYes = view?.findViewById(R.id.tvSwitchAll) ?: TextView(requireContext())
+        tvSwitchNo = view?.findViewById(R.id.tvSwitchFavorite) ?: TextView(requireContext())
 
         // Set a listener to the switch
         switchOnOff.setOnCheckedChangeListener { _, checked ->
@@ -174,27 +71,210 @@ class HomeFragment : Fragment() {
             }
         }
 
-        // Rest of your existing onViewCreated code...
 
-    }
+        val view = inflater.inflate(R.layout.fragment_home, container, false)
+        val locationImage1 = view.findViewById<ImageView>(R.id.cluj_imageV)
+        val locationImage2 = view.findViewById<ImageView>(R.id.bucuresti_imageV)
+        val locationImage3 = view.findViewById<ImageView>(R.id.iasi_imageV)
+        val locationImage4 = view.findViewById<ImageView>(R.id.berlin_imageV)
 
 
-    private fun navigateToDetailsFragment(selectedLocation: Locations) {
-        val bundle = Bundle()
-        bundle.putParcelable("selectedLocation", selectedLocation)
 
         val detailsFragment = DetailsFragment()
-        detailsFragment.arguments = bundle
+        detailsFragment.setFavoriteToggleListener(this)
 
-        parentFragmentManager.commit {
-            replace(R.id.fragment_container, detailsFragment) //??????????????????
-            addToBackStack(null)
+        // Find and initialize favoriteToggleButton
+        val favoriteToggleButton1: ToggleButton = view.findViewById(R.id.favorite_toggle_button1)
+        val favoriteToggleButton2: ToggleButton = view.findViewById(R.id.favorite_toggle_button2)
+        val favoriteToggleButton3: ToggleButton = view.findViewById(R.id.favorite_toggle_button3)
+        val favoriteToggleButton4: ToggleButton = view.findViewById(R.id.favorite_toggle_button4)
+//        locationImage1.setOnClickListener {
+//            imageIndex = 0
+//            findNavController().navigate(R.id.action_nav_home_to_detailsFragment)
+//        }
+
+        val addButton: Button = view.findViewById(R.id.addButton)
+        addButton.setOnClickListener {
+            // Call the logic you want to execute when the button is clicked
+            // For example, showing a toast message
+            Toast.makeText(requireContext(), "Add button clicked!", Toast.LENGTH_SHORT).show()
+            findNavController().navigate(R.id.action_nav_home_to_addFragment)
         }
-    }
+
+        // Assume locationImage1, locationImage2, locationImage3, locationImage4 are ImageView objects
+
+        val locationImages = listOf(locationImage1, locationImage2, locationImage3, locationImage4)
+
+        locationImages.forEachIndexed { index, locationImage ->
+            locationImage.setOnClickListener {
+                val selectedLocation = locationBank[index]
+
+                val bundle = Bundle()
+                bundle.putParcelable("selectedLocation", selectedLocation)
+
+                findNavController().navigate(
+                    R.id.action_nav_home_to_detailsFragment,
+                    bundle
+                )
+            }
+        }
 
 
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
+//        locationImage1.setOnClickListener {
+//            imageIndex = 0
+//            val selectedLocation = locationBank[imageIndex]
+//
+//            val bundle = Bundle()
+//            bundle.putParcelable("selectedLocation", selectedLocation)
+//
+//            findNavController().navigate(
+//                R.id.action_nav_home_to_detailsFragment,
+//                bundle
+//            )
+//        }
+//
+//
+//
+//        locationImage2.setOnClickListener {
+//            imageIndex = 1
+//            val selectedLocation = locationBank[imageIndex]
+//
+//            val bundle = Bundle()
+//            bundle.putParcelable("selectedLocation", selectedLocation)
+//
+//            val detailsFragment = DetailsFragment()
+//            detailsFragment.arguments = bundle
+//
+//            parentFragmentManager.commit {
+//                replace(R.id.fragment_container, detailsFragment)
+//                addToBackStack(null)
+//            }
+//        }
+//
+//        locationImage3.setOnClickListener {
+//            imageIndex = 2
+//            val selectedLocation = locationBank[imageIndex]
+//
+//            val bundle = Bundle()
+//            bundle.putParcelable("selectedLocation", selectedLocation)
+//
+//            val detailsFragment = DetailsFragment()
+//            detailsFragment.arguments = bundle
+//
+//            parentFragmentManager.commit {
+//                replace(R.id.fragment_container, detailsFragment)
+//                addToBackStack(null)
+//            }
+//        }
+//
+//        locationImage4.setOnClickListener {
+//            imageIndex = 3
+//            val selectedLocation = locationBank[imageIndex]
+//
+//            val bundle = Bundle()
+//            bundle.putParcelable("selectedLocation", selectedLocation)
+//
+//            val detailsFragment = DetailsFragment()
+//            detailsFragment.arguments = bundle
+//
+//            parentFragmentManager.commit {
+//                replace(R.id.fragment_container, detailsFragment)
+//                addToBackStack(null)
+//            }
+//        }
+
+        return view
     }
+
+    val startForResult =
+        registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { returnedResult ->
+            when (returnedResult.resultCode) {
+                AppCompatActivity.RESULT_OK -> {
+                    val intent = returnedResult.data
+                    val result = intent?.getParcelableExtra<Locations>("result")
+                    if (result != null) {
+                        val existingLocation: Locations = locationBank[imageIndex]
+                        val updatedLocation: Locations = result
+                        locationBank[imageIndex] = updatedLocation
+
+                        // Update Location's title TextView
+                        val titleTVId = updatedLocation.titleTV
+                        val ratingStr = updatedLocation.rating.toString()
+                        val introTV = view?.findViewById<TextView>(titleTVId)
+                        val introStr = updatedLocation.name.plus("\n").plus(ratingStr).plus(" Stars")
+                        introTV?.text = introStr
+
+                        // Show a toast to advise if details of the location have been updated
+                        val existingName = existingLocation.name
+                        val updatedName = updatedLocation.name
+                        val existingCity = existingLocation.cityAndState
+                        val updatedCity = updatedLocation.cityAndState
+                        val existingCountry = existingLocation.country
+                        val updatedCountry = updatedLocation.country
+                        val existingDate = existingLocation.lastVisitDate
+                        val updatedDate = updatedLocation.lastVisitDate
+                        val existingRating = existingLocation.rating
+                        val updatedRating = updatedLocation.rating
+
+                        if (existingName != updatedName ||
+                            existingCity != updatedCity ||
+                            existingCountry != updatedCountry ||
+                            existingDate != updatedDate ||
+                            existingRating != updatedRating
+                        ) {
+                            context?.let {
+                                Toast.makeText(
+                                    it,
+                                    "${updatedLocation.name} updated!",
+                                    Toast.LENGTH_LONG
+                                ).show()
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+
+
+    override fun onStart() {
+        super.onStart()
+        Log.d(TAG, "onStart() called")
+        // Other logic for onStart()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        Log.d(TAG, "onResume() called")
+        // Other logic for onResume()
+    }
+
+    override fun onPause() {
+        super.onPause()
+        Log.d(TAG, "onPause() called")
+        // Other logic for onPause()
+    }
+
+    override fun onStop() {
+        super.onStop()
+        Log.d(TAG, "onStop() called")
+        // Other logic for onStop()
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        Log.d(TAG, "onDestroy() called")
+        // Other logic for onDestroy()
+    }
+
+    override fun onFavoriteToggled(isFavorite: Boolean) {
+        val favoriteToggleButton: ToggleButton? = view?.findViewById(R.id.favorite_toggle_button)
+        favoriteToggleButton?.isChecked = isFavorite
+    }
+
+    private fun refreshMemoriesDisplay(showFavoritesOnly: Boolean) {
+        // Your logic to filter and display the memories based on the showFavoritesOnly flag
+        // Update the UI accordingly
+    }
+
 }

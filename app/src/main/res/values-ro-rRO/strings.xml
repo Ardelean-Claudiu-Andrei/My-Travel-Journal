@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">MyTravelJournal</string>
+    <string name="menu_home">Acasa</string>
+    <string name="profile">Profil</string>
+    <string name="about_us">Despre Noi</string>
+    <string name="contact_us">Contacteaza-ne</string>
+    <string name="share">Distribuie</string>
+    <string name="settings">Setari</string>
+    <string name="hello_blank_fragment">Buna fragment gol</string>
+    <string name="select_travel_type">Selecteaza tipul calatoriei</string>
+
+
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+
+    <string name="action_settings">Setari</string>
+
+    <string name="menu_gallery">Galerie</string>
+    <string name="menu_slideshow">Prezentare</string>
+
+    <string name="my_travel_journal">My Travel Journal</string>
+    <string name="aclaudiuandrei586_gmail_com">aclaudiuandrei586@gmail.com</string>
+    <string-array name="travel_types">
+        <item>Agrement</item>
+        <item>Afacere</item>
+        <item>familie</item>
+        <!-- Add other travel types as needed -->
+    </string-array>
+    <string name="photo1Image">cluj</string>
+    <string name="photo1Name">Cluj Napoca</string>
+    <string name="photo1Intro">Cluj Napoca\n4.5 Stars</string>
+
+
+    <!--    2nd photo    -->
+    <string name="photo2Image">bucharest</string>
+    <string name="photo2Name">Bucharest</string>
+    <string name="photo2Intro">Bucharest\n5.0 Stars</string>
+
+
+    <!--    3rd photo   -->
+    <string name="photo3Image">iasi</string>
+    <string name="photo3Name">Iasi</string>
+    <string name="photo3Intro">Iasi\n4.0 Stars</string>
+
+
+    <!--    4th photo   -->
+    <string name="photo4Image">berlin</string>
+    <string name="photo4Name">Berlin</string>
+    <string name="photo4Intro">Berlin\n3.5 Stars</string>
+    <string name="nameInputError">Alfabet, spatii si virgule doar pentru Nume</string>
+    <string name="cityAndStateInputError">Alfabet, spatii si virgule doar pentru Oras, Judet</string>
+    <string name="countryInputError">Alfabet, spatii si virgule doar pentru Tara</string>
+    <string name="dateInputError">Please enter a date before today</string>
+    <string name="menu_profile">Profil</string>
+    <string name="menu_settings">Setari\n</string>
+    <string name="menu_about_us">Despre Noi\n</string>
+    <string name="menu_share">Distribuie</string>
+    <string name="menu_contact_us">Contacteaza-ne</string>
+    <string name="nav_header_title_Mtj">My Travel Journal</string>
+    <string name="nav_header_subtitle_mtj">aclaudiuandrei586@gmail.com</string>
+    <string name="SettingsFragment">Setari</string>
+</resources>

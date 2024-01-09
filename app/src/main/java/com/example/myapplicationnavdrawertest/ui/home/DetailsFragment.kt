@@ -1,6 +1,5 @@
 package com.example.myapplicationnavdrawertest.ui.home
-
-import com.example.myapplicationnavdrawertest.Locations
+//import Locations
 import android.location.Geocoder
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -13,7 +12,9 @@ import android.widget.Toast
 import android.widget.ToggleButton
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
+import com.example.myapplicationnavdrawertest.Locations
 import com.example.myapplicationnavdrawertest.R
+//import com.example.mytraveljournal.R
 import com.example.mytraveljournal.ui.home.FavoriteToggleListener
 import com.example.mytraveljournal.ui.home.PhotoGridAdapter
 import com.example.mytraveljournal.ui.home.PhotoModel
@@ -35,7 +36,7 @@ import java.net.URL
 class DetailsFragment : Fragment(), OnMapReadyCallback {
 
 
-    //    private var selectedLocation: com.example.myapplicationnavdrawertest.Locations? = null
+    //    private var selectedLocation: Locations? = null
 //    private var mGoogleMap: GoogleMap? = null
     lateinit var updatedLoc: Locations
     var locNameText = ""
@@ -117,7 +118,7 @@ class DetailsFragment : Fragment(), OnMapReadyCallback {
             }
 
 
-//            val selectedLocation = arguments?.getParcelable<com.example.myapplicationnavdrawertest.Locations>("selectedLocation")
+//            val selectedLocation = arguments?.getParcelable<Locations>("selectedLocation")
 //            if (selectedLocation != null) {
 //                val cityName = selectedLocation.cityAndState // Assuming this contains the city name
 //                fetchWeatherData(cityName)
@@ -145,7 +146,7 @@ class DetailsFragment : Fragment(), OnMapReadyCallback {
             photoRecyclerView.adapter = adapter
         }
 
-//        val selectedLocation = arguments?.getParcelable<com.example.myapplicationnavdrawertest.Locations>("selectedLocation")
+//        val selectedLocation = arguments?.getParcelable<Locations>("selectedLocation")
         if (selectedLocation != null) {
             val favoriteToggleButton = view.findViewById<ToggleButton>(R.id.favorite_toggle_button)
             favoriteToggleButton.isChecked = selectedLocation.isFavorite
