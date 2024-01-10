@@ -11,7 +11,7 @@ data class Locations(
     var country: String,
     var lastVisitDate: String,
     var rating: Float,
-    var isFavorite: Boolean = false // New field for favorite status
+    var isFavorite: Boolean = false
 ) : Parcelable {
 
     constructor(parcel: Parcel) : this(

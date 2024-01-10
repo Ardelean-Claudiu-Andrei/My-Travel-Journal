@@ -9,15 +9,16 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
+import android.widget.Button
 import android.widget.EditText
 import android.widget.SeekBar
 import android.widget.Spinner
 import android.widget.TextView
+import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.example.myapplicationnavdrawertest.R
-
-// AddFragment.kt
 
 class AddFragment : Fragment(R.layout.fragment_add) {
 
@@ -38,13 +39,12 @@ class AddFragment : Fragment(R.layout.fragment_add) {
         datePickerEditText = view.findViewById(R.id.datePicker)
         datePickerEditText.setOnClickListener { showDatePickerDialog() }
 
-        // Find the spinner view by its ID
         val travelTypeSpinner: Spinner = view.findViewById(R.id.travelTypeSpinner)
 
-        // Define an array of options for the spinner
+        // array of options for the spinner
         val travelOptions = arrayOf("Leisure", "Business", "Family", "Others")
 
-        // Create an adapter for the spinner and set it
+        // adapter for the spinner
         val adapter = ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, travelOptions)
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         travelTypeSpinner.adapter = adapter
@@ -52,13 +52,10 @@ class AddFragment : Fragment(R.layout.fragment_add) {
         // Set a listener to handle item selection if needed
         travelTypeSpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
-                // Handle the selected item here
                 val selectedItem = travelOptions[position]
-                // Do something with the selected item
             }
 
             override fun onNothingSelected(parent: AdapterView<*>?) {
-                // Handle situation where nothing is selected
             }
         }
 
@@ -86,6 +83,25 @@ class AddFragment : Fragment(R.layout.fragment_add) {
                 // Not needed for this implementation
             }
         })
+
+        val galleryBtn: Button = view.findViewById(R.id.btnGalery)
+        galleryBtn.setOnClickListener {
+            Toast.makeText(requireContext(), "Feature will be here soon!", Toast.LENGTH_SHORT).show()
+            findNavController().navigate(R.id.nav_home)
+        }
+
+        val CameraBtn: Button = view.findViewById(R.id.btnCamera)
+        CameraBtn.setOnClickListener {
+            Toast.makeText(requireContext(), "Feature will be here soon!", Toast.LENGTH_SHORT).show()
+            findNavController().navigate(R.id.nav_home)
+        }
+
+        val saveBtn: Button = view.findViewById(R.id.btnSave)
+        saveBtn.setOnClickListener {
+            Toast.makeText(requireContext(), "Memory saved!", Toast.LENGTH_SHORT).show()
+            findNavController().navigate(R.id.nav_home)
+        }
+
     }
 
     @RequiresApi(Build.VERSION_CODES.N)

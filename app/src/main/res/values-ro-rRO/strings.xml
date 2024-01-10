@@ -73,4 +73,12 @@
     <string name="dateoftravel">Data calatoriei</string>
     <string name="travelmood">"Starea de spirit: "</string>
     <string name="notes">Notite</string>
+    <string name="name">Nume</string>
+    <string name="login">Logheaza-te</string>
+    <string name="logOut">Deconectare</string>
+    <string name="gallery">Galerie</string>
+    <string name="save">Salveaza</string>
+    <string name="add">Adauga</string>
+    <string name="favorite">Favorite</string>
+    <string name="all">Toate</string>
 </resources>

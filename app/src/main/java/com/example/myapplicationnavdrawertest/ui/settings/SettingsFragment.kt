@@ -110,7 +110,7 @@ class SettingsFragment : Fragment() {
             if (isChecked) {
                 requestNotificationPermission()
             } else {
-                // Handle when switch is turned off
+                // turned off
             }
         }
 
@@ -131,11 +131,6 @@ class SettingsFragment : Fragment() {
             "ro" -> 1
             else -> 0 // Default to English if not found
         }
-    }
-    private fun applyLanguage(languageIndex: Int) {
-        /* Apply language based on the languageIndex */
-        /* Trigger recreation of the activity/fragment for the language change to take effect */
-        requireActivity().recreate()
     }
 
     private fun applyTheme(themeIndex: Int) {
@@ -171,11 +166,9 @@ class SettingsFragment : Fragment() {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
         if (requestCode == NOTIFICATION_PERMISSION_REQUEST_CODE) {
             if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                // Notification permission granted, perform necessary actions here
-                // For instance, enable notifications or any specific logic
+
             } else {
                 // Notification permission denied, handle it accordingly
-                // For instance, show a message explaining why permission is needed
             }
         }
     }

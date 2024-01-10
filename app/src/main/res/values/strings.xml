@@ -89,4 +89,14 @@
     <string name="dateoftravel">Date of Travel</string>
     <string name="travelmood">"Travel mood: "</string>
     <string name="notes">Notes</string>
+    <string name="usernametext">Ardelean Claudiu Andrei</string>
+    <string name="useremailtext">aclaudiuandrei586@gmail.com</string>
+    <string name="name">Name</string>
+    <string name="login">Login</string>
+    <string name="logOut">LogOut</string>
+    <string name="gallery">Gallery</string>
+    <string name="save">Save</string>
+    <string name="add">Add</string>
+    <string name="favorite">Favorite</string>
+    <string name="all">All</string>
 </resources>

@@ -19,4 +19,6 @@
     <item name="location_ET" type="id" />
     <item name="location_IL" type="id" />
     <item name="bucuresti_imageV" type="id" />
+    <item name="profilePicture" type="id" />
+    <item name="circularBackground" type="id" />
 </resources>

@@ -22,7 +22,11 @@
         android:id="@+id/nav_profile"
         android:name="com.example.myapplicationnavdrawertest.ui.profile.ProfileFragment"
         android:label="@string/menu_profile"
-        tools:layout="@layout/fragment_profile" />
+        tools:layout="@layout/fragment_profile" >
+        <action
+            android:id="@+id/action_nav_profile_to_logedOutFragment"
+            app:destination="@id/nav_logedOut" />
+    </fragment>
 
     <fragment
         android:id="@+id/nav_about_us"
@@ -52,7 +56,14 @@
         android:name="com.example.myapplicationnavdrawertest.ui.settings.SettingsFragment"
         android:label="@string/SettingsFragment"
         android:layout="@layout/fragment_settings"/>
-
+    <fragment
+        android:id="@+id/nav_logedOut"
+        android:name="com.example.myapplicationnavdrawertest.ui.profile.LogedOutFragment"
+        android:label="LogedOutFragment" >
+        <action
+            android:id="@+id/action_logedOutFragment_to_nav_profile"
+            app:destination="@id/nav_profile" />
+    </fragment>
 
 
 </navigation>

@@ -1,5 +1,5 @@
 package com.example.myapplicationnavdrawertest.ui.home
-//import Locations
+
 import android.location.Geocoder
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -14,7 +14,6 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
 import com.example.myapplicationnavdrawertest.Locations
 import com.example.myapplicationnavdrawertest.R
-//import com.example.mytraveljournal.R
 import com.example.mytraveljournal.ui.home.FavoriteToggleListener
 import com.example.mytraveljournal.ui.home.PhotoGridAdapter
 import com.example.mytraveljournal.ui.home.PhotoModel
@@ -36,8 +35,6 @@ import java.net.URL
 class DetailsFragment : Fragment(), OnMapReadyCallback {
 
 
-    //    private var selectedLocation: Locations? = null
-//    private var mGoogleMap: GoogleMap? = null
     lateinit var updatedLoc: Locations
     var locNameText = ""
     var locCityAndStateText = ""
@@ -117,13 +114,6 @@ class DetailsFragment : Fragment(), OnMapReadyCallback {
                 }
             }
 
-
-//            val selectedLocation = arguments?.getParcelable<Locations>("selectedLocation")
-//            if (selectedLocation != null) {
-//                val cityName = selectedLocation.cityAndState // Assuming this contains the city name
-//                fetchWeatherData(cityName)
-//            }
-
         }
 
         mapFragment =
@@ -156,7 +146,7 @@ class DetailsFragment : Fragment(), OnMapReadyCallback {
                 updateToggleButtonStyle(favoriteToggleButton, isChecked)
             }
 
-            // Initially update the button style based on the isFavorite state
+
             updateToggleButtonStyle(favoriteToggleButton, selectedLocation.isFavorite)
         }
 
@@ -227,8 +217,6 @@ class DetailsFragment : Fragment(), OnMapReadyCallback {
         mapFragment?.getMapAsync { googleMap ->
             when (mode) {
                 "satellite" -> googleMap.setMapType(GoogleMap.MAP_TYPE_SATELLITE)
-                // Handle other map modes as needed
-                // For example: "normal", "hybrid", etc.
                 else -> googleMap.setMapType(GoogleMap.MAP_TYPE_NORMAL)
             }
         }
@@ -236,14 +224,12 @@ class DetailsFragment : Fragment(), OnMapReadyCallback {
 
 
     private fun updateToggleButtonStyle(button: ToggleButton, isFavorite: Boolean) {
-        // Change the button style based on the isFavorite state
+
         if (isFavorite) {
-            // Update button color or icon for favorite state
-            // For example:
+
             button.setBackgroundResource(R.drawable.favorite_icon)
         } else {
-            // Update button color or icon for non-favorite state
-            // For example:
+
             button.setBackgroundResource(R.drawable.non_favorite_icon)
         }
     }
@@ -256,7 +242,7 @@ class DetailsFragment : Fragment(), OnMapReadyCallback {
         val formattedLocationName = locationName.replace(" ", "")
         val photoList = mutableListOf<PhotoModel>()
 
-        val photoCount = 3 // Set the number of photos you want to load for each location
+        val photoCount = 3 // number of photos to load for location
 
         // Load photos based on location name
         for (i in 1..photoCount) {
@@ -289,7 +275,5 @@ class DetailsFragment : Fragment(), OnMapReadyCallback {
 
 
     fun onBackPressed() {
-        // Handle back press logic here
-        // Extract data from UI elements and pass it back to the calling activity if needed
     }
 }
