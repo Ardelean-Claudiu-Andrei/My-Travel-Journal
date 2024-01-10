@@ -99,7 +99,20 @@ class AddFragment : Fragment(R.layout.fragment_add) {
         val saveBtn: Button = view.findViewById(R.id.btnSave)
         saveBtn.setOnClickListener {
             Toast.makeText(requireContext(), "Memory saved!", Toast.LENGTH_SHORT).show()
-            findNavController().navigate(R.id.nav_home)
+            // Create a bundle to hold the data to be passed back
+            val bundle = Bundle().apply {
+                // Add your data here, for example:
+                putString("name", "Your Name")
+                putString("location", "Your Location")
+                putString("country", "Your Country")
+                putString("lastVisitDate", "Your Date")
+                putFloat("raiting", 0.0F)
+            }
+
+            // Use Navigation Component to pass data back to the previous fragment (HomeFragment)
+            findNavController().previousBackStackEntry?.savedStateHandle?.set("locationData", bundle)
+
+            findNavController().navigateUp()
         }
 
     }

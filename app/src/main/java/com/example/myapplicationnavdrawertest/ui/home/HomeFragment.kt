@@ -23,10 +23,10 @@ private const val TAG = "HomeFragment"
 class HomeFragment : Fragment(), FavoriteToggleListener {
 
     private val locationBank = mutableListOf(
-        Locations(R.drawable.clujnapoca1, R.id.clujTitle_textV, "Cluj Napoca", "Cluj Napoca, Cluj", "Romania", "Last visited: 15/05/2019", 4.5f),
-        Locations(R.drawable.bucuresti1, R.id.bucurestiTitle_textV, "Bucuresti", "Bucuresti, Ilfov", "Romania", "Last visited: 23/05/2019", 5.0f),
-        Locations(R.drawable.iasi1, R.id.iasiTitle_textV, "Iasi", "Iasi, Iasi", "Romania", "Last visited: 10/08/2018", 4.0f),
-        Locations(R.drawable.berlin1, R.id.berlinTitle_textV, "Berlin", "Berlin, Berlin", "Deutschland", "Last visited: 23/07/2017", 3.5f)
+        Locations(R.drawable.clujnapoca1, R.id.clujTitle_textV, "Cluj Napoca", "Cluj Napoca, Cluj", "Romania", "Last visited: 15/05/2024", 4.5f),
+        Locations(R.drawable.bucuresti1, R.id.bucurestiTitle_textV, "Bucharest", "Bucharest, Ilfov", "Romania", "Last visited: 08/08/2022", 5.0f),
+        Locations(R.drawable.iasi1, R.id.iasiTitle_textV, "Iasi", "Iasi, Iasi", "Romania", "Last visited: 10/08/2012", 4.0f),
+        Locations(R.drawable.berlin1, R.id.berlinTitle_textV, "Berlin", "Berlin, Berlin", "Deutschland", "Last visited: 10/01/2020", 3.5f)
     )
 
 
@@ -66,8 +66,6 @@ class HomeFragment : Fragment(), FavoriteToggleListener {
         val locationImage2 = view.findViewById<ImageView>(R.id.bucuresti_imageV)
         val locationImage3 = view.findViewById<ImageView>(R.id.iasi_imageV)
         val locationImage4 = view.findViewById<ImageView>(R.id.berlin_imageV)
-        val locationImage5 = view.findViewById<ImageView>(R.id.berlin_imageV)
-
 
 
         val detailsFragment = DetailsFragment()
@@ -88,7 +86,7 @@ class HomeFragment : Fragment(), FavoriteToggleListener {
 
         // For locationImage1, locationImage2, locationImage3, locationImage4 are ImageView objects
 
-        val locationImages = listOf(locationImage1, locationImage2, locationImage3, locationImage4, locationImage5)
+        val locationImages = listOf(locationImage1, locationImage2, locationImage3, locationImage4)
 
         locationImages.forEachIndexed { index, locationImage ->
             locationImage.setOnClickListener {
