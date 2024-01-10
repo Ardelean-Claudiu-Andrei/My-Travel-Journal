@@ -1,6 +1,5 @@
 package com.example.myapplicationnavdrawertest.ui.home
 
-
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -9,10 +8,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
-import android.widget.Toast
 import android.widget.ToggleButton
-import androidx.activity.result.contract.ActivityResultContracts
-import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SwitchCompat
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
@@ -32,6 +28,7 @@ class HomeFragment : Fragment(), FavoriteToggleListener {
         Locations(R.drawable.iasi1, R.id.iasiTitle_textV, "Iasi", "Iasi, Iasi", "Romania", "Last visited: 10/08/2018", 4.0f),
         Locations(R.drawable.berlin1, R.id.berlinTitle_textV, "Berlin", "Berlin, Berlin", "Deutschland", "Last visited: 23/07/2017", 3.5f)
     )
+
 
     private var imageIndex: Int = 0
     private lateinit var location: Locations
@@ -69,6 +66,7 @@ class HomeFragment : Fragment(), FavoriteToggleListener {
         val locationImage2 = view.findViewById<ImageView>(R.id.bucuresti_imageV)
         val locationImage3 = view.findViewById<ImageView>(R.id.iasi_imageV)
         val locationImage4 = view.findViewById<ImageView>(R.id.berlin_imageV)
+        val locationImage5 = view.findViewById<ImageView>(R.id.berlin_imageV)
 
 
 
@@ -90,7 +88,7 @@ class HomeFragment : Fragment(), FavoriteToggleListener {
 
         // For locationImage1, locationImage2, locationImage3, locationImage4 are ImageView objects
 
-        val locationImages = listOf(locationImage1, locationImage2, locationImage3, locationImage4)
+        val locationImages = listOf(locationImage1, locationImage2, locationImage3, locationImage4, locationImage5)
 
         locationImages.forEachIndexed { index, locationImage ->
             locationImage.setOnClickListener {

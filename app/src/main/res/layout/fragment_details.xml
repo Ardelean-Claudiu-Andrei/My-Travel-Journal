@@ -70,22 +70,41 @@
             android:text="TextView" />
     </com.google.android.material.textfield.TextInputLayout>
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/visitDate_IL"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-<!--        app:boxBackgroundColor="@color/primaryColor"-->
 
-        <EditText
-            android:id="@+id/visitDate_ET"
-            style="@style/smallTextView"
-            android:focusable="false"
-            android:inputType="date"
-            android:maxLines="1"
-            android:textColor="?android:textColorPrimary"
-            android:text="TextView" />
-    </com.google.android.material.textfield.TextInputLayout>
+<!--    <com.google.android.material.textfield.TextInputLayout-->
+<!--        android:id="@+id/visitDate_IL"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content">-->
+<!--&lt;!&ndash;        app:boxBackgroundColor="@color/primaryColor"&ndash;&gt;-->
 
+<!--        <EditText-->
+<!--            android:id="@+id/visitDate_ET"-->
+<!--            style="@style/smallTextView"-->
+<!--            android:focusable="false"-->
+<!--            android:inputType="date"-->
+<!--            android:maxLines="1"-->
+<!--            android:textColor="?android:textColorPrimary"-->
+<!--            android:text="TextView" />-->
+<!--    </com.google.android.material.textfield.TextInputLayout>-->
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/datePickerLayoutDetails"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/country_IL"
+            android:minHeight="48dp"
+            android:padding="8dp"
+            android:layout_marginBottom="16dp">
+
+            <EditText
+                android:id="@+id/datePickerDetails"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/dateoftravel"
+                android:textColor="?android:textColorPrimary"
+                android:inputType="none"
+                android:onClick="showDatePickerDialog" />
+        </com.google.android.material.textfield.TextInputLayout>
 <!--    <RatingBar-->
 <!--        android:id="@+id/ratingBar"-->
 <!--        style="@style/RatingBar"-->

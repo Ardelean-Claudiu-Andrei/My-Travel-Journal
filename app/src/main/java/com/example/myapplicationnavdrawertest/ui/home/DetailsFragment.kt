@@ -1,6 +1,10 @@
 package com.example.myapplicationnavdrawertest.ui.home
 
+import android.app.DatePickerDialog
+import android.content.res.Configuration
+import android.icu.util.Calendar
 import android.location.Geocoder
+import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -10,6 +14,8 @@ import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import android.widget.ToggleButton
+import androidx.annotation.RequiresApi
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
 import com.example.myapplicationnavdrawertest.Locations
@@ -44,7 +50,7 @@ class DetailsFragment : Fragment(), OnMapReadyCallback {
 
     // Create a placeholder for the weather info TextView
     private lateinit var weatherInfoTextView: TextView
-
+    private lateinit var datePickerEditText: EditText
 
     private var mGoogleMap: GoogleMap? = null
     private var mapFragment: SupportMapFragment? = null
@@ -75,7 +81,7 @@ class DetailsFragment : Fragment(), OnMapReadyCallback {
             val locationName = selectedLocation.name
             val locationCity = selectedLocation.cityAndState
             val locationCountry = selectedLocation.country
-            val lastVisitedDate = selectedLocation.lastVisitDate
+//            val lastVisitedDate = selectedLocation.lastVisitDate
 
 
 
@@ -89,8 +95,8 @@ class DetailsFragment : Fragment(), OnMapReadyCallback {
             locationCityEditText.setText(locationCity)
             val locationCountryEditText = view.findViewById<EditText>(R.id.country_ET)
             locationCountryEditText.setText(locationCountry)
-            val lastVisitedDateEditText = view.findViewById<EditText>(R.id.visitDate_ET)
-            lastVisitedDateEditText.setText(lastVisitedDate)
+//            val lastVisitedDateEditText = view.findViewById<EditText>(R.id.visitDate_ET)
+//            lastVisitedDateEditText.setText(lastVisitedDate)
 
 
             weatherInfoTextView = view.findViewById(R.id.weather_info)
@@ -115,6 +121,12 @@ class DetailsFragment : Fragment(), OnMapReadyCallback {
             }
 
         }
+
+        datePickerEditText = view.findViewById(R.id.datePickerDetails)
+        datePickerEditText.setText(selectedLocation?.lastVisitDate)
+        datePickerEditText.setOnClickListener { showDatePickerDialog() }
+
+
 
         mapFragment =
             childFragmentManager.findFragmentById(R.id.map_fragment) as SupportMapFragment?
@@ -168,9 +180,15 @@ class DetailsFragment : Fragment(), OnMapReadyCallback {
                 val weatherDescription = weather.getString("description")
 
                 val weatherInfo = "Temperature: $temp\nFeels like: $feelsLike\nDescription: $weatherDescription"
-
+                val primaryColor = if (isDarkTheme()) {
+                    ContextCompat.getColor(requireContext(), R.color.white)
+                } else {
+                    ContextCompat.getColor(requireContext(), R.color.black)
+                }
                 withContext(Dispatchers.Main) {
                     weatherInfoTextView.text = weatherInfo
+                    weatherInfoTextView.setTextColor(primaryColor)
+
                 }
             } catch (e: IOException) {
                 e.printStackTrace()
@@ -180,6 +198,12 @@ class DetailsFragment : Fragment(), OnMapReadyCallback {
         }
     }
 
+
+    // Function to check if the current theme is dark
+    private fun isDarkTheme(): Boolean {
+        val currentNightMode = resources.configuration.uiMode and Configuration.UI_MODE_NIGHT_MASK
+        return currentNightMode == Configuration.UI_MODE_NIGHT_YES
+    }
 
     override fun onMapReady(googleMap: GoogleMap) {
         mGoogleMap = googleMap
@@ -273,6 +297,27 @@ class DetailsFragment : Fragment(), OnMapReadyCallback {
         }
     }
 
+
+    @RequiresApi(Build.VERSION_CODES.N)
+    private fun showDatePickerDialog() {
+        val calendar = Calendar.getInstance()
+        val year = calendar.get(Calendar.YEAR)
+        val month = calendar.get(Calendar.MONTH)
+        val day = calendar.get(Calendar.DAY_OF_MONTH)
+
+        val datePicker = DatePickerDialog(
+            requireContext(),
+            { _, selectedYear, selectedMonth, selectedDay ->
+                val selectedDate = "$selectedDay.${selectedMonth + 1}.$selectedYear"
+                datePickerEditText.setText(selectedDate)
+            },
+            year,
+            month,
+            day
+        )
+
+        datePicker.show()
+    }
 
     fun onBackPressed() {
     }
