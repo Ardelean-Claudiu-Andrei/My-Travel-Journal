@@ -81,4 +81,9 @@
     <string name="add">Adauga</string>
     <string name="favorite">Favorite</string>
     <string name="all">Toate</string>
+    <string name="add_text">Adaugare</string>
+    <string name="details_fragmet_text">Detalii</string>
+    <string name="contact_us_text">Contacteaza-ne</string>
+    <string name="share_text">Distribuie</string>
+    <string name="loged_out_fragment_tetxt">Delogat</string>
 </resources>

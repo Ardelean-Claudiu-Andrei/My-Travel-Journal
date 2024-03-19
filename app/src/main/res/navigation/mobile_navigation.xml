@@ -36,20 +36,20 @@
     <fragment
         android:id="@+id/addFragment"
         android:name="com.example.mytraveljournal.ui.home.AddFragment"
-        android:label="AddFragment" />
+        android:label="@string/add_text" />
     <fragment
         android:id="@+id/detailsFragment"
         android:name="com.example.myapplicationnavdrawertest.ui.home.DetailsFragment"
-        android:label="DetailsFragment" />
+        android:label="@string/details_fragmet_text" />
 
     <fragment
         android:id="@+id/nav_contact_us"
         android:name="com.example.myapplicationnavdrawertest.ui.contactus.ContactUsFragment"
-        android:label="DetailsFragment" />
+        android:label="@string/contact_us_text" />
     <fragment
         android:id="@+id/nav_share"
         android:name="com.example.myapplicationnavdrawertest.ui.share.ShareFragment"
-        android:label="DetailsFragment" />
+        android:label="@string/share_text" />
 
     <fragment
         android:id="@+id/nav_settings"
@@ -59,7 +59,7 @@
     <fragment
         android:id="@+id/nav_logedOut"
         android:name="com.example.myapplicationnavdrawertest.ui.profile.LogedOutFragment"
-        android:label="LogedOutFragment" >
+        android:label="@string/loged_out_fragment_tetxt" >
         <action
             android:id="@+id/action_logedOutFragment_to_nav_profile"
             app:destination="@id/nav_profile" />
